@@ -1,5 +1,5 @@
 const fs = require('fs');
-const readableStream = fs.createReadStream('text.txt');
-let data = '';
-readableStream.on('data', (chunk) => console.log(chunk.length));
-stream.on('end', () => console.log('End', data.length));
+const path = require('path');
+const { stdout } = require('process');
+const input = fs.createReadStream(path.join(__dirname, 'text.txt'), 'utf-8');
+input.on('data', (data) => stdout.write(data));
